@@ -42,7 +42,7 @@ struct CounterView: View {
                 .onTapGesture {
                     hole.inc()
                 }
-                .simultaneousGesture(DragGesture().onEnded({
+                .gesture(DragGesture().onEnded({
                     if $0.translation.height > 40 {
                         hole.dec()
                     }
