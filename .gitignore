@@ -1,0 +1,5 @@
+*.pbxuser
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+build/
