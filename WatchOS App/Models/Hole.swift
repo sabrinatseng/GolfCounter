@@ -13,7 +13,9 @@ struct Hole: Identifiable {
     }
     
     mutating func dec() {
-        self.count -= 1
+        if self.count > 0 {
+            self.count -= 1
+        }
     }
 }
 
