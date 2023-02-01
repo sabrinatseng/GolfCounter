@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SummaryView: View {
     @Binding var holes: Holes
+    @State private var isPresentingResetConfirm: Bool = false
 
     var body: some View {
         List {
@@ -14,9 +15,15 @@ struct SummaryView: View {
         }
         .toolbar {
             Button(action: {
-                holes.reset()
+                isPresentingResetConfirm = true
             }) {
-                Image(systemName: "clear.fill")
+                Image(systemName: "trash.fill")
+            }
+            .confirmationDialog("Reset all holes?",
+                isPresented: $isPresentingResetConfirm) {
+                Button("Reset", role: .destructive) {
+                    holes.reset()
+                }
             }
         }
     }
